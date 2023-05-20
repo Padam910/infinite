@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" onchange="demo(this)" />
+  <script>
+    var start = 0;
+    var end = 10000;
+    function demo(input) {
+      var file = input.files[0];
+      var size = file.size;
+      for(let i = 0;i<size;)
+      {
+        if(end < size)
+        {
+          var newFile = file.slice(start,end);
+          console.log(newFile);
+          i = i+10000;
+          start = end;
+          end = end+10000;
+        }
+      }
+    }
+  </script>
+</body>
+</html>
